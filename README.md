@@ -50,6 +50,22 @@ En tant qu'utilisateur, je veux pouvoir transférer de l'argent vers des comptes
 #### Gestion des Bénéficiaires
 En tant qu'utilisateur, je veux pouvoir ajouter, modifier ou supprimer des bénéficiaires pour faciliter mes transferts externes, en indiquant son nom et ses détails de compte (numéro de compte, banque, etc.).
 
+#### La conception UML
+
+usecase :
+
+<img width="374" alt="use case" src="https://github.com/ilyashaqyqy/E-BankSolution/assets/157011241/599f553a-82cc-40e5-a26a-97e796b67ae3">
+
+daigramme de classes :
+
+<img width="475" alt="daigramme de classes" src="https://github.com/ilyashaqyqy/E-BankSolution/assets/157011241/42a8d7a0-1641-4d3a-942d-8347a7012a47">
+
+daigramme de sequance :
+
+<img width="374" alt="use case" src="https://github.com/ilyashaqyqy/E-BankSolution/assets/157011241/5d2344f3-e049-48a9-bc3f-281638a9e82b">
+
+
+
 ## Exigences Techniques
 
 ### Structuration du Projet
