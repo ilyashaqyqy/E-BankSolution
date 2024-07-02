@@ -1,4 +1,4 @@
-# e-bank Backend Development
+# E-bank Backend Development
 
 ## Contexte du Projet
 
