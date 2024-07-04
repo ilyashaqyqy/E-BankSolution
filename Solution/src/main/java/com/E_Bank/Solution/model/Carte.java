@@ -13,11 +13,10 @@ public class Carte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCart;
-
     private String numéroCarte;
     private LocalDate dateExpiration;
     private String typeDeCarte;
-    private boolean active;
+    private boolean status;
 
     @OneToOne
     @JoinColumn(name = "compte_id")
