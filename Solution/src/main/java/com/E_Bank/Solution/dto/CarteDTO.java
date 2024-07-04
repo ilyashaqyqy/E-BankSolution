@@ -1,25 +1,25 @@
-package com.E_Bank.Solution.model;
+package com.E_Bank.Solution.dto;
 
-import jakarta.persistence.*;
+import com.E_Bank.Solution.model.Compte;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 
+
 @Getter
 @Setter
-@Entity
-public class Carte {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@NoArgsConstructor
+@AllArgsConstructor
+public class CarteDTO {
+
     private Long idCart;
 
     private String numéroCarte;
     private LocalDate dateExpiration;
     private String typeDeCarte;
     private boolean active;
-
-    @OneToOne
-    @JoinColumn(name = "compte_id")
     private Compte compte;
 }

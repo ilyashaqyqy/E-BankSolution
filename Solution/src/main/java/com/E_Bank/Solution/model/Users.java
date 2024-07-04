@@ -1,24 +1,24 @@
 package com.E_Bank.Solution.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
 
-@Getter
-@Setter
-@Entity
+
+@Getter @Setter @Entity
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
     private String userName;
+
     private String password;
 
-
+    @OneToMany(mappedBy = "user")
+    private List<Compte> comptes;
 }
+

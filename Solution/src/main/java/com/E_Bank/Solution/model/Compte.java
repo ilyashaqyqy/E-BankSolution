@@ -1,13 +1,12 @@
 package com.E_Bank.Solution.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -16,10 +15,29 @@ public class Compte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCompte;
-
     private String typeDeCompte;
     private double soldeInitial;
+    @NotNull
     private LocalDateTime dateDeCreation;
     private String status;
-    private String raisonCloture;
+    private String raisonClosure;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Users user;
+
+    @OneToMany(mappedBy = "compte")
+    private List<Transaction> transactions;
+
+    @OneToMany(mappedBy = "compteSource")
+    private List<Transfer> transfertsEnvoyes;
+
+    @OneToMany(mappedBy = "compteDestination")
+    private List<Transfer> transfertsRecus;
+
+    @OneToMany(mappedBy = "compte")
+    private List<Beneficiaire> beneficiaires;
+
+    @OneToOne(mappedBy = "compte")
+    private Carte carte;
 }
