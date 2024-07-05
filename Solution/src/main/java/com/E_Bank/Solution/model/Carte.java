@@ -16,7 +16,7 @@ public class Carte {
     private String numéroCarte;
     private LocalDate dateExpiration;
     private String typeDeCarte;
-    private boolean status;
+    private boolean Active;
 
     @OneToOne
     @JoinColumn(name = "compte_id")
