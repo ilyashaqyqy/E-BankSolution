@@ -20,4 +20,5 @@ public class CompteDTO {
     private LocalDateTime dateDeCreation;
     private String status;
     private String raisonClosure;
+    private Long userId;
 }

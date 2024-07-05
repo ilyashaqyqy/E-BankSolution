@@ -16,8 +16,6 @@ public class UserDTO {
     private Long userId;
     private String userName;
     private String password;
-    private List<Compte> comptes;
-
-
+    private List<CompteDTO> comptes;
 }
 

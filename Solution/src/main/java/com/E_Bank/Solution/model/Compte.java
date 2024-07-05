@@ -22,7 +22,7 @@ public class Compte {
     private String status;
     private String raisonClosure;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private Users user;
 

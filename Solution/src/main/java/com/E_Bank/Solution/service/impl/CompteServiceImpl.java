@@ -3,7 +3,9 @@ package com.E_Bank.Solution.service.impl;
 import com.E_Bank.Solution.dto.CompteDTO;
 import com.E_Bank.Solution.mapper.CompteMapper;
 import com.E_Bank.Solution.model.Compte;
+import com.E_Bank.Solution.model.Users;
 import com.E_Bank.Solution.repository.CompteRepository;
+import com.E_Bank.Solution.repository.UserRepository;
 import com.E_Bank.Solution.service.CompteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,9 +22,15 @@ public class CompteServiceImpl implements CompteService {
     @Autowired
     private CompteMapper compteMapper;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @Override
     public CompteDTO createCompte(CompteDTO compteDTO) {
         Compte compte = compteMapper.toEntity(compteDTO);
+        Users user = userRepository.findById(compteDTO.getUserId())
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        compte.setUser(user);
         compte = compteRepository.save(compte);
         return compteMapper.toDTO(compte);
     }
