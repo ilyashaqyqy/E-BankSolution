@@ -20,19 +20,19 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-//    @Override
-//    public UserDTO createUser(UserDTO userDTO) {
-//        Users user = userMapper.toEntity(userDTO);
-//        user = userRepository.save(user);
-//        return userMapper.toDTO(user);
-//    }
-//
-//    @Override
-//    public List<UserDTO> getAllUsers() {
-//        return userRepository.findAll().stream()
-//                .map(userMapper::toDTO)
-//                .collect(Collectors.toList());
-//    }
+    @Override
+    public UserDTO createUser(UserDTO userDTO) {
+        Users user = userMapper.toEntity(userDTO);
+        user = userRepository.save(user);
+        return userMapper.toDTO(user);
+    }
+
+    @Override
+    public List<UserDTO> getAllUsers() {
+        return userRepository.findAll().stream()
+                .map(userMapper::toDTO)
+                .collect(Collectors.toList());
+    }
 
     @Override
     public UserDTO getUserById(Long id) {
