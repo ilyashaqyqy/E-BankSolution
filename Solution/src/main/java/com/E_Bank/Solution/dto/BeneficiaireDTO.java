@@ -16,9 +16,8 @@ import lombok.Setter;
 public class BeneficiaireDTO {
 
     private Long beneficiaireId;
-
     private String name;
     private String accountNumber;
     private String bankName;
-    private Compte compte;
+    private Long compteId;
 }

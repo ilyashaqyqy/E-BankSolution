@@ -3,7 +3,9 @@ package com.E_Bank.Solution.service.impl;
 import com.E_Bank.Solution.dto.BeneficiaireDTO;
 import com.E_Bank.Solution.mapper.BeneficiaireMapper;
 import com.E_Bank.Solution.model.Beneficiaire;
+import com.E_Bank.Solution.model.Compte;
 import com.E_Bank.Solution.repository.BeneficiaireRepository;
+import com.E_Bank.Solution.repository.CompteRepository;
 import com.E_Bank.Solution.service.BeneficiaireService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,9 +22,15 @@ public class BeneficiaireServiceImpl implements BeneficiaireService {
     @Autowired
     private BeneficiaireMapper beneficiaireMapper;
 
+    @Autowired
+    private CompteRepository compteRepository;
+
     @Override
     public BeneficiaireDTO addBeneficiaire(BeneficiaireDTO beneficiaireDTO) {
         Beneficiaire beneficiaire = beneficiaireMapper.toEntity(beneficiaireDTO);
+        Compte compte = compteRepository.findById(beneficiaireDTO.getCompteId())
+                .orElseThrow(() -> new RuntimeException("Compte not found"));
+        beneficiaire.setCompte(compte);
         beneficiaire = beneficiaireRepository.save(beneficiaire);
         return beneficiaireMapper.toDTO(beneficiaire);
     }
@@ -34,6 +42,11 @@ public class BeneficiaireServiceImpl implements BeneficiaireService {
         beneficiaire.setName(beneficiaireDTO.getName());
         beneficiaire.setAccountNumber(beneficiaireDTO.getAccountNumber());
         beneficiaire.setBankName(beneficiaireDTO.getBankName());
+        if (beneficiaireDTO.getCompteId() != null) {
+            Compte compte = compteRepository.findById(beneficiaireDTO.getCompteId())
+                    .orElseThrow(() -> new RuntimeException("Compte not found"));
+            beneficiaire.setCompte(compte);
+        }
         beneficiaire = beneficiaireRepository.save(beneficiaire);
         return beneficiaireMapper.toDTO(beneficiaire);
     }
@@ -57,3 +70,5 @@ public class BeneficiaireServiceImpl implements BeneficiaireService {
         return beneficiaireMapper.toDTO(beneficiaire);
     }
 }
+
+
