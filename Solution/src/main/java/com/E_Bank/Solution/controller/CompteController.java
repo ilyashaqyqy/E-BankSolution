@@ -38,4 +38,10 @@ public class CompteController {
     public CompteDTO closeCompte(@PathVariable Long id, @RequestParam String reason) {
         return compteService.closeCompte(id, reason);
     }
+
+    @GetMapping("/{id}/balance")
+    public double getCompteBalance(@PathVariable Long id) {
+        return compteService.getCompteBalance(id);
+    }
+
 }

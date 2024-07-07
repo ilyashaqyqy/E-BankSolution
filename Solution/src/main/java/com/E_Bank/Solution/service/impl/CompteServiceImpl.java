@@ -71,4 +71,11 @@ public class CompteServiceImpl implements CompteService {
         compteRepository.save(compte);
         return compteMapper.toDTO(compte);
     }
+
+    @Override
+    public double getCompteBalance(Long id) {
+        Compte compte = compteRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Compte not found"));
+        return compte.getSoldeInitial();
+    }
 }

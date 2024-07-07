@@ -10,5 +10,6 @@ public interface CompteService {
     List<CompteDTO> getAllComptes();
     CompteDTO getCompteById(Long id);
     CompteDTO updateCompte(Long id, CompteDTO compteDTO);
+    double getCompteBalance(Long id);
 }
 
