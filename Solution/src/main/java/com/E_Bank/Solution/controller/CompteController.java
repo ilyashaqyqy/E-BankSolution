@@ -44,4 +44,10 @@ public class CompteController {
         return compteService.getCompteBalance(id);
     }
 
+    @GetMapping("/{id}/type")
+    public String getCompteType(@PathVariable Long id) {
+
+        return compteService.getCopteType(id);
+    }
+
 }

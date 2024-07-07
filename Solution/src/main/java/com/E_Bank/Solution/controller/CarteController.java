@@ -35,4 +35,10 @@ public class CarteController {
     public CarteDTO blockCarte(@PathVariable Long id, @RequestParam String reason) {
         return carteService.blockCarte(id, reason);
     }
+
+    @GetMapping("{id}")
+    public CarteDTO getCarte(@PathVariable Long id) {
+
+        return carteService.getCarteDetails( id);
+    }
 }

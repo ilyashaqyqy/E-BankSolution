@@ -78,4 +78,13 @@ public class CompteServiceImpl implements CompteService {
                 .orElseThrow(() -> new RuntimeException("Compte not found"));
         return compte.getSoldeInitial();
     }
+
+    @Override
+    public String getCopteType(Long id) {
+
+        Compte compte = compteRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Compte not found"));
+
+        return compte.getTypeDeCompte();
+    }
 }

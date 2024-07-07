@@ -11,5 +11,6 @@ public interface CompteService {
     CompteDTO getCompteById(Long id);
     CompteDTO updateCompte(Long id, CompteDTO compteDTO);
     double getCompteBalance(Long id);
+    String getCopteType(Long id);
 }
 
