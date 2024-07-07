@@ -18,4 +18,5 @@ public class TransactionDTO {
     private double montant;
     private String typeDeTransaction;
     private String description;
+    private Long compteId;
 }
