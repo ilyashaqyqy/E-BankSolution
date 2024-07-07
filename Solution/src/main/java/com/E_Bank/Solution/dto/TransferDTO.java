@@ -13,9 +13,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TransferDTO {
+    private Long transferId;
     private Double montant;
     private LocalDateTime dateHeure;
     private String description;
-    private Compte compteSource;
-    private Compte compteDestination;
+    private Long compteSourceId;
+    private Long compteDestinationId;
 }

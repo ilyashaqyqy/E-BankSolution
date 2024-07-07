@@ -14,11 +14,10 @@ public class TransferController {
     @Autowired
     private TransferService transferService;
 
-    @PostMapping
-    public TransferDTO createTransfer(@RequestBody TransferDTO transferDTO) {
-        return transferService.createTransfer(transferDTO);
+    @PostMapping("/internal")
+    public TransferDTO createInternalTransfer(@RequestBody TransferDTO transferDTO) {
+        return transferService.createInternalTransfer(transferDTO);
     }
-    
 
     @GetMapping("/{id}")
     public TransferDTO getTransferById(@PathVariable Long id) {
@@ -29,6 +28,4 @@ public class TransferController {
     public List<TransferDTO> getAllTransfers() {
         return transferService.getAllTransfers();
     }
-
-
 }
