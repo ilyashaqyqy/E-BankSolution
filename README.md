@@ -62,7 +62,7 @@ daigramme de classes :
 
 daigramme de sequance :
 
-<img width="374" alt="use case" src="https://github.com/ilyashaqyqy/E-BankSolution/assets/157011241/5d2344f3-e049-48a9-bc3f-281638a9e82b">
+<img width="309" alt="daigramme de sequence" src="https://github.com/ilyashaqyqy/E-BankSolution/assets/157011241/476852ff-a0ac-43da-98a4-8f5fc23c1dd3">
 
 
 
