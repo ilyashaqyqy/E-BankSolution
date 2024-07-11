@@ -18,7 +18,6 @@ public class Transfer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long transferId;
-
     private Double montant;
     private LocalDateTime dateHeure;
     private String description;

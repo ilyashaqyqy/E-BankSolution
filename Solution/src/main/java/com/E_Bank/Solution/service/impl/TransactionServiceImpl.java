@@ -1,6 +1,7 @@
 package com.E_Bank.Solution.service;
 
 import com.E_Bank.Solution.dto.TransactionDTO;
+import com.E_Bank.Solution.mapper.CarteMapper;
 import com.E_Bank.Solution.mapper.TransactionMapper;
 import com.E_Bank.Solution.model.Compte;
 import com.E_Bank.Solution.model.Transaction;
@@ -25,6 +26,9 @@ public class TransactionServiceImpl implements TransactionService {
     @Autowired
     private TransactionMapper transactionMapper;
 
+    @Autowired
+    private CarteMapper carteMapper;
+
     @Override
     @Transactional
     public TransactionDTO createTransaction(TransactionDTO transactionDTO) {
@@ -33,6 +37,8 @@ public class TransactionServiceImpl implements TransactionService {
                 .orElseThrow(() -> new RuntimeException("Compte not found"));
 
         // Update the balance based on the type of transaction
+
+
         if ("Credit".equalsIgnoreCase(transaction.getTypeDeTransaction())) {
             compte.setSoldeInitial(compte.getSoldeInitial() + transaction.getMontant());
         } else if ("Debit".equalsIgnoreCase(transaction.getTypeDeTransaction())) {
