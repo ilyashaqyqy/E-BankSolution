@@ -50,4 +50,9 @@ public class CompteController {
         return compteService.getCopteType(id);
     }
 
+//    @GetMapping("/allsold")
+//    public Double GetTotal() {
+//        return compteService.GetTotal();
+//    }
+
 }

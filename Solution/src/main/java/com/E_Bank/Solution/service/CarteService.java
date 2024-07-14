@@ -10,4 +10,5 @@ public interface CarteService {
     CarteDTO deactivateCarte(Long id);
     CarteDTO blockCarte(Long id, String reason);
     List<CarteDTO> getAllCartes();
+
 }
