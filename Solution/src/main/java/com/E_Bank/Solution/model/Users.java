@@ -23,6 +23,10 @@ public class Users implements UserDetails {
 
     private String password;
 
+    private String firstname;
+
+    private String lastname;
+
 
 
     @OneToMany(mappedBy = "user")

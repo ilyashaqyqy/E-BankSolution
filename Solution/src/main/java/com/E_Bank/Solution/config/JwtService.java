@@ -19,7 +19,7 @@ import java.util.function.Function;
 public class JwtService {
 
 
-    private static final String SECRET_KEY="196E5E229625CA53B83E2F11331C7" ;
+    private static final String SECRET_KEY = "404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970";
 
     public String extractUsername(String token) {
 
@@ -46,7 +46,7 @@ return Jwts
         .setSubject(userDetails.getUsername())
         .setIssuedAt(new Date(System.currentTimeMillis()))
         .setExpiration(new Date (System.currentTimeMillis() + 1000 * 60 *24))
-        .signWith(getSigningKey(), SignatureAlgorithm.ES256)
+        .signWith(getSigningKey(), SignatureAlgorithm.HS256)
         .compact();
     }
 
