@@ -8,4 +8,5 @@ public interface TransactionService {
     TransactionDTO createTransaction(TransactionDTO transactionDTO);
     List<TransactionDTO> getAllTransactions();
     TransactionDTO getTransactionById(Long id);
+    List<TransactionDTO> getTransactionsByCompteId(Long compteId);
 }

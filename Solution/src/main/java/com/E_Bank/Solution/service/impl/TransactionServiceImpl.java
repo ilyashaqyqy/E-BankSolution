@@ -1,4 +1,4 @@
-package com.E_Bank.Solution.service;
+package com.E_Bank.Solution.service.impl;
 
 import com.E_Bank.Solution.dto.TransactionDTO;
 import com.E_Bank.Solution.mapper.CarteMapper;
@@ -7,6 +7,7 @@ import com.E_Bank.Solution.model.Compte;
 import com.E_Bank.Solution.model.Transaction;
 import com.E_Bank.Solution.repository.CompteRepository;
 import com.E_Bank.Solution.repository.TransactionRepository;
+import com.E_Bank.Solution.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -61,6 +62,14 @@ public class TransactionServiceImpl implements TransactionService {
     public TransactionDTO getTransactionById(Long id) {
         Transaction transaction = transactionRepository.findById(id).orElseThrow(() -> new RuntimeException("Transaction not found"));
         return transactionMapper.toDTO(transaction);
+    }
+
+    @Override
+    public List<TransactionDTO> getTransactionsByCompteId(Long compteId) {
+        List<Transaction> transactions = transactionRepository.findByCompteIdCompte(compteId);
+        return transactions.stream()
+                .map(transactionMapper::toDTO)
+                .collect(Collectors.toList());
     }
 
     @Override

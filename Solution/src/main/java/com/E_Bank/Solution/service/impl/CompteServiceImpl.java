@@ -10,6 +10,7 @@ import com.E_Bank.Solution.service.CompteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,6 +32,7 @@ public class CompteServiceImpl implements CompteService {
         Users user = usersRepository.findById(compteDTO.getUserId())
                 .orElseThrow(() -> new RuntimeException("User not found"));
         compte.setUser(user);
+        compte.setDateDeCreation(LocalDateTime.now());
         compte = compteRepository.save(compte);
         return compteMapper.toDTO(compte);
     }

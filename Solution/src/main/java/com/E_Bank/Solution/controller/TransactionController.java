@@ -31,4 +31,9 @@ public class TransactionController {
     }
 
 
+    @GetMapping("/compte/{compteId}")
+    public List<TransactionDTO> getTransactionsByCompteId(@PathVariable Long compteId) {
+        return transactionService.getTransactionsByCompteId(compteId);
+    }
+
 }
